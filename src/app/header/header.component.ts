@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-header',
@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
     collapsed = true; // for hamburger menu
+    @Output() navItemClicked = new EventEmitter<string>();
 
     constructor() {
     }
@@ -14,4 +15,11 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    /**
+     * sents event to notifiy app that a link has been clicked
+     * @param linkName
+     */
+    onNavClick(linkName: string): void {
+        this.navItemClicked.emit(linkName);
+    }
 }

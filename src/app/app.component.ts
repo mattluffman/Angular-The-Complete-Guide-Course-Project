@@ -6,4 +6,5 @@ import {Component} from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    activeSection = 'recipes'; // set to recipes by default
 }
