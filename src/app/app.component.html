@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-12">
             <app-recipes *ngIf="activeSection === 'recipes'"></app-recipes>
-            <app-shopping-list *ngIf="activeSection === 'shopping-list'"></app-shopping-list>
+            <app-shopping-list *ngIf="activeSection !== 'recipes'"></app-shopping-list>
         </div>
     </div>
 </div>
