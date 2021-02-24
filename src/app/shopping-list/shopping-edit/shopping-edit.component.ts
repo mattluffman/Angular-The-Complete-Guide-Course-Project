@@ -7,8 +7,8 @@ import {Ingredient} from '../../shared/ingredient.model';
     styles: []
 })
 export class ShoppingEditComponent implements OnInit {
-    @ViewChild('nameInput') nameField: ElementRef<HTMLInputElement>;
-    @ViewChild('amountInput') amountField: ElementRef<HTMLInputElement>;
+    @ViewChild('nameInput', {static: false}) nameField: ElementRef<HTMLInputElement>;
+    @ViewChild('amountInput', {static: false}) amountField: ElementRef<HTMLInputElement>;
     @Output() ingredientAdded = new EventEmitter<Ingredient>();
 
     constructor() {
@@ -17,7 +17,7 @@ export class ShoppingEditComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    addIngredient(): void {
+    onAddIngredient(): void {
         const item = new Ingredient(this.nameField.nativeElement.value, this.amountField.nativeElement.valueAsNumber);
         this.ingredientAdded.emit(item);
         // clear fields
