@@ -6,10 +6,12 @@ import {Directive, ElementRef, HostBinding, HostListener, Renderer2} from '@angu
 export class DropdownDirective {
     @HostBinding('class.open') open = false;
 
-    constructor() {
+    constructor(private element: ElementRef) {
     }
 
-    @HostListener('click') toggleOpen(eventData: Event) {
-        this.open = !this.open;
+    @HostListener('document:click', ['$event']) toggleOpen(eventData: Event) {
+        console.log(eventData);
+        console.log(eventData.target);
+        this.open = this.element.nativeElement.contains(eventData.target) ? !this.open : false;
     }
 }
