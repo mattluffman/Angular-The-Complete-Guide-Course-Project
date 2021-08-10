@@ -19,7 +19,7 @@ export class RecipeDetailComponent implements OnInit {
     /**
      * adds chosen recipe ingredients to the shopping list
      */
-    onToShoppingList(): void {
+    onAddToShoppingList(): void {
         this.slService.addIngredients(this.recipe.ingredients);
     }
 }

@@ -32,7 +32,8 @@ export class ShoppingListService {
      * @param ingredients list of ingredients
      */
     addIngredients(ingredients: Ingredient[]): void {
-        ingredients.forEach(i => this.ingredients.push(i));
+        // ingredients.forEach(i => this.ingredients.push(i));
+        this.ingredients.push(...ingredients); // using spread operator per his suggestion, that's nicer than what I did
         this.ingredientsChanged.emit();
     }
 }
