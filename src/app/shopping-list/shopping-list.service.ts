@@ -26,4 +26,13 @@ export class ShoppingListService {
         this.ingredients.push(ingredient);
         this.ingredientsChanged.emit();
     }
+
+    /**
+     * add multiple {@link Ingredient}'s to the list at once
+     * @param ingredients list of ingredients
+     */
+    addIngredients(ingredients: Ingredient[]): void {
+        ingredients.forEach(i => this.ingredients.push(i));
+        this.ingredientsChanged.emit();
+    }
 }
