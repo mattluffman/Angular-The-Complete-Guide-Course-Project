@@ -5,7 +5,7 @@ import {Ingredient} from '../shared/ingredient.model';
     providedIn: 'root'
 })
 export class ShoppingListService {
-    ingredientAdded = new EventEmitter();
+    ingredientsChanged = new EventEmitter();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 5),
@@ -24,6 +24,6 @@ export class ShoppingListService {
 
     addIngredient(ingredient: Ingredient): void {
         this.ingredients.push(ingredient);
-        this.ingredientAdded.emit();
+        this.ingredientsChanged.emit();
     }
 }
