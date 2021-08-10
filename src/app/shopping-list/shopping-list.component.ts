@@ -4,22 +4,21 @@ import {ShoppingListService} from './shopping-list.service';
 
 @Component({
     selector: 'app-shopping-list',
-    templateUrl: './shopping-list.component.html',
-    providers: [ShoppingListService]
+    templateUrl: './shopping-list.component.html'
 })
 export class ShoppingListComponent implements OnInit {
     ingredients: Ingredient[];
 
-    constructor(private shoppingListService: ShoppingListService) {
+    constructor(private slService: ShoppingListService) {
     }
 
     ngOnInit(): void {
-        this.ingredients = this.shoppingListService.getIngredients();
+        this.ingredients = this.slService.getIngredients();
 
         // subscribe to changes emitted from service
-        this.shoppingListService.ingredientAdded.subscribe(
+        this.slService.ingredientAdded.subscribe(
             () => {
-                this.ingredients = this.shoppingListService.getIngredients();
+                this.ingredients = this.slService.getIngredients();
             }
         );
     }

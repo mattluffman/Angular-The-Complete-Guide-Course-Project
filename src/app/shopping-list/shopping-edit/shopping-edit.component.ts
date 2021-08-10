@@ -11,7 +11,7 @@ export class ShoppingEditComponent implements OnInit {
     @ViewChild('nameInput', {static: false}) nameField: ElementRef<HTMLInputElement>;
     @ViewChild('amountInput', {static: false}) amountField: ElementRef<HTMLInputElement>;
 
-    constructor(private shoppingListService: ShoppingListService) {
+    constructor(private slService: ShoppingListService) {
     }
 
     ngOnInit(): void {
@@ -24,7 +24,7 @@ export class ShoppingEditComponent implements OnInit {
     onAddIngredient(): void {
         const item = new Ingredient(this.nameField.nativeElement.value, this.amountField.nativeElement.valueAsNumber);
         // this.ingredientAdded.emit(item); // old call from when we were emitting this locally
-        this.shoppingListService.addIngredient(item);
+        this.slService.addIngredient(item);
 
         // clear fields
         this.nameField.nativeElement.value = '';
