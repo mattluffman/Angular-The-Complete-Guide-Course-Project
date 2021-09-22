@@ -1,4 +1,4 @@
-import {TestBed, async} from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
@@ -16,16 +16,22 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'angular-course-project'`, () => {
+    /*it(`should have as title 'angular-course-project'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
         expect(app.title).toEqual('angular-course-project');
+    });*/
+
+    it('should have activeSection set to recipes', function () {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.componentInstance;
+        expect(app.activeSection).toEqual('recipes');
     });
 
-    it('should render title', () => {
+    /*it('should render title', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.nativeElement;
         expect(compiled.querySelector('.content span').textContent).toContain('angular-course-project app is running!');
-    });
+    });*/
 });
